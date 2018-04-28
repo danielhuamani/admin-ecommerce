@@ -3,6 +3,7 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -36,8 +37,16 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'styles': resolve('src/assets/styles/')
     }
   },
+  plugins: [
+    new ExtractTextPlugin('style.css')
+    //if you want to pass in options, you can do so:
+    //new ExtractTextPlugin({
+    //  filename: 'style.css'
+    //})
+  ],
   module: {
     rules: [
       ...(config.dev.useEslint ? [createLintingRule()] : []),
@@ -74,6 +83,30 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
+      },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+                loader: 'css-loader',
+                options: {
+                    // If you are having trouble with urls not resolving add this setting.
+                    // See https://github.com/webpack-contrib/css-loader#url
+                    url: false,
+                    minimize: true,
+                    sourceMap: true
+                }
+            },
+            {
+                loader: 'sass-loader',
+                options: {
+                    sourceMap: true
+                }
+            }
+          ]
+        })
       }
     ]
   },
