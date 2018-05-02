@@ -5,7 +5,11 @@
         <div class="col-12 mb-20">
           <div class="card">
             <div class="card-body d-flex justify-content-end">
-              <a :href="'http://fanntop.com/producto/' + product.slug" target='_blank' class='btn btn-primary'>Ver en tienda</a>
+              <div class="button-group">
+                <router-link :to="{ name: 'product_list'}" class='btn btn-dark'>
+                <i class='fa fa-long-arrow-alt-left'></i> Regresar</router-link>
+                <a :href="'http://fanntop.com/producto/' + product.slug" target='_blank' class='btn btn-primary'>Ver en tienda</a>
+              </div>
             </div>
           </div>
         </div>

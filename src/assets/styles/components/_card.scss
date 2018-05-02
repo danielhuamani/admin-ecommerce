@@ -53,10 +53,13 @@
     padding: 0;
     &__header{
         border-bottom: 1px solid $color_border;
-        // padding-top: 15px;
-        padding: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
 
         background-color: $color_background;
+        &--white{
+            background-color: white;
+        }
         &__col{
             position: relative;
         }

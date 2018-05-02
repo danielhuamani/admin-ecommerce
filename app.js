@@ -10,7 +10,7 @@ app.get('*',function(req,res){
   //__dirname : It will resolve to your project folder.
 });
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3006;
 app.listen(port);
 
 console.log('server started '+ port);
