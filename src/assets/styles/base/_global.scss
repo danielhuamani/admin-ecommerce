@@ -5,7 +5,7 @@ body, html {
 
 label{
     font-family: $font_main;
-    font-size: 14px;
+    font-size: 15px;
     margin-bottom: 4px;
 }
 h1,h2,h3{
@@ -47,6 +47,14 @@ label{
     margin-bottom: 20px;
 }
 .form-group{
+    &__errors{
+        margin-top: 3px;
+        p{
+            color: $color_danger;
+            margin-bottom: 3px;
+            font-size: 11px;
+        }
+    }
     &__text{
         margin: 0;
         color: $color_text_black;
@@ -57,9 +65,14 @@ label{
         justify-content: space-between;
     }
 }
-.form-control:focus{
-    box-shadow: none;
-    border: 1px solid $color_form_focus;
+.form-control{
+    &--errors{
+        border: 1px solid $color_danger !important;
+    }
+    &:focus{
+        box-shadow: none;
+        border: 1px solid $color_form_focus;
+    }
 }
 .content-table{
     margin-top: 30px;

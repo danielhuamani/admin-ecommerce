@@ -70,7 +70,7 @@ export default {
       const self = this
       this.axios.post('/token-auth/', self.login)
         .then((response) => {
-          let token = response.data.token
+          let token = response.data
           setTokenData(token)
           self.$router.push({name: 'dashboard'})
         })

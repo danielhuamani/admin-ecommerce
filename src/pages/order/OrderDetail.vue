@@ -244,6 +244,7 @@
   </div>
 </template>
 <script>
+  import { mapMutations } from 'vuex'
   export default {
     name: 'orderDetail',
     data () {
@@ -267,8 +268,12 @@
     },
     created () {
       this.getOrder()
+      this.setNameMenu('Pedido')
     },
     methods: {
+      ...mapMutations([
+        'setNameMenu'
+      ]),
       getOrder () {
         var self = this
         this.axios({

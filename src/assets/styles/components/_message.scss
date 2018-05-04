@@ -1,0 +1,32 @@
+.message{
+    $root: &;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 14px 20px;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    position: relative;
+    &__close{
+        position: absolute;
+        right: 10px;
+        top: 5px;
+        color: $color_text_menu;
+        cursor: pointer;
+    }
+    &--success{
+        border-left: 6px solid $color_success;
+        #{$root}__title{
+            color: $color_success
+        }
+    }
+    &--danger{
+        border-left: 6px solid $color_danger;
+        #{$root}__title{
+            color: $color_danger
+        }
+    }
+    &__title{
+        font-family: $font_main;
+        font-size: 16px;
+    }
+}

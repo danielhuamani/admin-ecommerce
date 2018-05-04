@@ -122,6 +122,7 @@
   </div>
 </template>
 <script>
+import { mapMutations } from 'vuex'
 export default {
   name: 'ProductList',
   data () {
@@ -140,8 +141,12 @@ export default {
   },
   created () {
     this.getProducts()
+    this.setNameMenu('Producto')
   },
   methods: {
+    ...mapMutations([
+      'setNameMenu'
+    ]),
     getProducts () {
       const self = this
       this.axios.get('/product/', {
