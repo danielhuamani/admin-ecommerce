@@ -27,7 +27,7 @@
             <h5>Mis Ventas</h5>
         </div>
         <div class="card-body">
-          <LineDashboard></LineDashboard>
+          <LineDashboard :dashboard='dashboard' v-if='load'></LineDashboard>
         </div>
       </div>
     </div>
@@ -43,16 +43,28 @@ export default {
   },
   created () {
     this.setNameMenu('Dashboard')
+    this.getDashboard()
   },
   data () {
     return {
-      row_orders: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+      dashboard: {},
+      load: false
     }
   },
   methods: {
     ...mapMutations([
       'setNameMenu'
     ]),
+    getDashboard () {
+      const self = this
+      this.axios({
+        method: 'get',
+        url: '/dashboard/'
+      }).then(response => {
+        self.dashboard = response.data
+        self.load = true
+      })
+    }
   }
 }
 </script>

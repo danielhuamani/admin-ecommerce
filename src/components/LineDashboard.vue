@@ -10,6 +10,7 @@ export default {
 
     }
   },
+  props: ['dashboard'],
   methods: {
     renderChart: function(data_chart, options){
       var ctx = document.getElementById('myChartVencer').getContext('2d');
@@ -26,8 +27,9 @@ export default {
     }
   },
   mounted () {
+    const self = this
     this.renderChart({
-        labels: ['Enero', 'Febrero', 'Marzo', 'Abril'],
+        labels: self.dashboard.mes_anio,
         datasets: [
           {
             label: 'Ventas',
@@ -36,7 +38,7 @@ export default {
             borderWidth: 2,
             pointBorderColor: '#007ce2',
 
-            data: [20, 15, 50, 80]
+            data: self.dashboard.sum_total
           }
         ]
       }, {responsive: true, maintainAspectRatio: false})

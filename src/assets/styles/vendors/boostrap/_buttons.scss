@@ -12,6 +12,7 @@
   vertical-align: middle;
   user-select: none;
   border: $btn-border-width solid transparent;
+  box-sizing: border-box;
   @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-line-height, $btn-border-radius);
   @include transition($btn-transition);
 
@@ -23,7 +24,7 @@
   &:focus,
   &.focus {
     outline: 0;
-    box-shadow: $btn-focus-box-shadow;
+    // box-shadow: $btn-focus-box-shadow;
   }
 
   // Disabled comes first so active can properly restyle

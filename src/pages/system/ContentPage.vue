@@ -90,8 +90,8 @@ export default {
   }
   .content-page{
     position: relative;
-    width: calc(100% - 250px);
-    margin-left: 250px;
+    width: calc(100% - 220px);
+    margin-left: 220px;
     transition: 0.3s ease all;
     background: #F0F1F5;
     &--active{

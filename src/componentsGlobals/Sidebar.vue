@@ -44,7 +44,7 @@ export default {
   @import "~styles/abstract/variables";
   .sidebar{
     $root: &;
-    width: 250px;
+    width: 220px;
     position: fixed;
     left: 0;
     top: 0;
@@ -79,7 +79,7 @@ export default {
         width: 30px;
       }
       &__link{
-        padding: 8px 30px;
+        padding: 8px 20px;
         display: block;
         white-space: nowrap;
         color: $color_text_menu;

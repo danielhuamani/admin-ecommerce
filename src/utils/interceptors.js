@@ -21,7 +21,6 @@ export default function setupAxios () {
     if ((error.response.status === 401 && !originalRequest._retry) ||
       (error.response.data.detail === 'Signature has expired.' && error.response.status === 403) ||
       (error.response.data.detail === 'Invalid signature.' && error.response.status === 403)) {
-      console.log(token)
       authLogout()
       window.location.href = '/'
 

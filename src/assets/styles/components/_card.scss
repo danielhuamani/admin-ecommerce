@@ -20,7 +20,10 @@
             }
         }
         &__input-search{
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
             padding-left: 35px;
+            padding-top: 9px;
             &:focus{
                  #{$root}__icon-search{
                     color: $color_text_black;
@@ -36,15 +39,27 @@
 
         }
         &__btn{
-            width: 160px;
-            margin-left: 15px;
+            width: 140px;
+            // margin-right: 15px;
             line-height: 26px;
         }
     }
     .card-header{
+        background-color: $color_background;
         &__title{
             font-size: 20px;
             font-family: $font_main;
+        }
+    }
+    .card-footer{
+        background-color: $color_background;
+    }
+    &--filtros{
+        position: relative;
+        .filters{
+            position: absolute;
+            left: 0;
+            top: 0;
         }
     }
 }
