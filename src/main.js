@@ -8,15 +8,14 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import config from './config'
 import setupAxios from './utils/interceptors'
-import {hasError, getError} from './filters/errorsDJ'
+import {decimal} from './filters/tags'
 
 Vue.use(VueAxios, axios)
 Vue.axios.defaults.baseURL = config.baseURL
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-hasError()
-getError()
+decimal()
 setupAxios()
 new Vue({
   el: '#app',

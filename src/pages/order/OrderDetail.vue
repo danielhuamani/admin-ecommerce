@@ -209,7 +209,7 @@
                       Sub Total:
                     </div>
                     <div class="col-2">
-                      S/ {{order.influencer_extra.total_influencer.toFixed(2)}}
+                      S/ {{order.influencer_extra.total_influencer|decimal}}
                     </div>
                   </div>
                   <div class="row">
@@ -220,7 +220,7 @@
                       Descuento:
                     </div>
                     <div class="col-2">
-                      S/ {{order.influencer_extra.total_discount.toFixed(2)}}
+                      S/ {{order.influencer_extra.total_discount|decimal}}
                     </div>
                   </div>
                   <div class="row">
@@ -231,7 +231,7 @@
                       Total:
                     </div>
                     <div class="col-2">
-                      S/ {{order.influencer_extra.total.toFixed(2)}}
+                      S/ {{order.influencer_extra.total|decimal}}
                     </div>
                   </div>
                 </div>
