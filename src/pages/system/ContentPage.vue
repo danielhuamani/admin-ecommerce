@@ -95,8 +95,8 @@ export default {
     transition: 0.3s ease all;
     background: #F0F1F5;
     &--active{
-      width: calc(100% - 100px);
-      margin-left: 100px;
+      width: calc(100% - 90px);
+      margin-left: 90px;
     }
     .content-view{
 
@@ -109,5 +109,15 @@ export default {
 
   .fade-enter, .fade-leave-active {
     opacity: 0
+  }
+  @media screen and (max-width: 960px)  {
+    .content-page{
+      width: 100%;
+      margin-left: 0;
+      &--active{
+        width: calc(100% - 90px);
+        margin-left: 90px;
+      }
+    }
   }
 </style>

@@ -54,10 +54,13 @@ export default {
     border-right: 1px solid rgba(0, 0, 0, 0.125);
     background-color: $color_background;
     &--active{
-      width: 100px;
+      width: 90px;
       #{$root}__menu__text{
         transform: translate3d(-25px,0,0);
         opacity: 0;
+      }
+      #{$root}__menu__icon{
+        margin-left:5px;
       }
     }
     &__logo{
@@ -114,6 +117,23 @@ export default {
         opacity: 1;
         position: relative;
         display: inline-block;
+      }
+    }
+  }
+  @media screen and (max-width: 960px)  {
+    .sidebar{
+      $root: &;
+      left: -1000px;
+      &--active{
+        left: 0px;
+        width: 90px;
+        #{$root}__menu__text{
+          transform: translate3d(-25px,0,0);
+          opacity: 0;
+        }
+        #{$root}__menu__icon{
+          margin-left:5px;
+        }
       }
     }
   }

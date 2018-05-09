@@ -2,12 +2,99 @@
     &--margin{
         margin-top: 30px;
     }
+    &--margin_filter{
+        margin-top: 10px;
+    }
     .card-body{
         $root: &;
         [class*="col-"]:last-child{
             .form-group{
                 margin-bottom: 0;
             }
+        }
+        &__link_filter{
+            position: relative;
+        }
+        &--filters{
+            padding: 6px;
+        }
+        &__option_filter{
+            &__option{
+                position: absolute;
+                left: 120%;
+                top: -30px;
+                background: white;
+                padding: 10px;
+                z-index: 200;
+                width: 250px;
+                border: 1px solid rgba(0, 0, 0, 0.125);
+                box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+                &__title{
+                    border-bottom: 1px solid black;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+        &__filters{
+            &__option{
+                background: $color_main;
+                border-radius: 4px;
+                position: relative;
+                padding-right: 20px;
+            }
+            &__text{
+                margin-bottom: 0;
+                color: white;
+                padding: 6px 8px;
+                font-size: 14px;
+            }
+            &__close{
+                display: block;
+                color: white;
+                position: absolute;
+                right: 6px;
+                top: 8px;
+                cursor: pointer;
+            }
+        }
+        &__filters_query{
+            position: absolute;
+            background: white;
+            z-index: 300;
+            left: 120%;
+            border: 1px solid rgba(0, 0, 0, 0.125);
+            top: -30px;
+            z-index: 100;
+            border: 1px solid $color_background_dark;
+            border-radius: 4px;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+            &__menu{
+                $root: &;
+                padding: 12px 15px;
+                display: flex;
+                width: 150px;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+                &__title{
+                    font-size: 16px;
+                    font-family: $font_main;
+                    margin-right: 10px;
+                    color: $color_table;
+                }
+                &__arrow{
+                    display: block;
+                    color: $color_table;
+                }
+                &:hover{
+                    #{$root}__title{
+                        color: red;
+                    }
+
+                }
+
+            }
+
         }
         &--search{
             position: relative;
@@ -25,7 +112,7 @@
             padding-left: 35px;
             padding-top: 9px;
             &:focus{
-                 #{$root}__icon-search{
+                #{$root}__icon-search{
                     color: $color_text_black;
                 }
             }
@@ -39,7 +126,7 @@
 
         }
         &__btn{
-            width: 140px;
+            width: 100px;
             // margin-right: 15px;
             line-height: 26px;
         }
@@ -87,7 +174,7 @@
         }
         &__orderBy{
             position: absolute;
-            right: 15px;
+            right: 10px;
             top: -10px;
             display: flex;
             flex-direction: column;
@@ -166,4 +253,15 @@
         }
     }
 
+}
+
+@media screen and (max-width: 640px) {
+    .card-table{
+        &__header__title{
+            font-size: 14px;
+        }
+        &__body__field{
+            font-size: 13px;
+        }
+    }
 }
