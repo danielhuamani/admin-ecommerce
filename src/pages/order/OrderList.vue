@@ -6,92 +6,8 @@
     <div class="col-12">
       <form action='' method='' class="card">
         <div class="card-body d-flex">
-          <div class="btn-group card-body__link_filter">
+          <div class="btn-group ">
             <a href="" class="btn btn-dark card-body__btn" @click.prevent='showFilter=!showFilter'>Filtros</a>
-            <div class="card-body__filters_query" v-show='showFilter'>
-              <div class="card-body__filters_query__menu" @click='show.total=true,showFilter=false'>
-                <h5 class="card-body__filters_query__menu__title" >
-                  Total
-                </h5>
-                <i class="fa fa-caret-right card-body__filters_query__menu__arrow "></i>
-
-              </div>
-              <div class="card-body__filters_query__menu">
-                <h5 class="card-body__filters_query__menu__title" @click='show.date=true,showFilter=false'>
-                  Creación
-                </h5>
-                <i class="fa fa-caret-right card-body__filters_query__menu__arrow "></i>
-              </div>
-              <div class="card-body__filters_query__menu" @click='show.status=true,showFilter=false'>
-                <h5 class="card-body__filters_query__menu__title" >
-                  Estado
-                </h5>
-                <i class="fa fa-caret-right card-body__filters_query__menu__arrow "></i>
-              </div>
-            </div>
-            <div class="card-body__option_filter">
-              <div class="card-body__option_filter__option" v-if='show.total'>
-                <h6 class="card-body__option_filter__option__title" @click='show.total=false,showFilter=true'>
-                  <i class="fa fa-caret-left"></i> Total
-                </h6>
-                <div class="form-group">
-                  <label for="">Desde</label>
-                  <input type="number" class='form-control' @keyup='setFilter()' v-model='filter.total_from'>
-                </div>
-                <div class="form-group">
-                  <label for="">Hasta</label>
-                  <input type="number" class='form-control' @keyup='setFilter()' v-model='filter.total_to'>
-                </div>
-                <div class="button-group d-flex justify-content-start">
-                  <a href="" class="btn btn-dark" @click.prevent='showFilter=false,show.total=false'>Cerrar</a>
-                <!--   <a href="" class="btn btn-primary"
-                  @click.prevent='showFilter=false,show.total=false, filterTotal=true, setFilter()'>
-                    Filtrar
-                  </a> -->
-                </div>
-              </div>
-              <div class="card-body__option_filter__option" v-if='show.date'>
-                <h6 class="card-body__option_filter__option__title" @click='show.date=false,showFilter=true'>
-                  <i class="fa fa-caret-left"></i>  Fecha Creación
-                </h6>
-                <div class="form-group">
-                  <label for="">Desde</label>
-                  <date-picker v-model="date_from" id='fecha1'  @change='changeDateFrom' lang='es' format='dd/MM/yyyy'></date-picker>
-                </div>
-                <div class="form-group">
-                  <label for="">Hasta</label>
-                  <date-picker v-model="date_to" id='fecha2' lang='es' @change='changeDateTo' format='dd/MM/yyyy'> </date-picker>
-                </div>
-                <div class="button-group d-flex justify-content-start">
-                  <a href="" class="btn btn-dark" @click.prevent='showFilter=false,show.date=false'>Cerrar</a>
-                <!--   <a href="" class="btn btn-primary"
-                  @click.prevent='showFilter=false,show.date=false, filterTotal=true, setFilter()'>
-                    Filtrar
-                  </a> -->
-                </div>
-              </div>
-              <div class="card-body__option_filter__option" v-if='show.status'>
-                <h6 class="card-body__option_filter__option__title" @click='show.status=false,showFilter=true'>
-                  <i class="fa fa-caret-left"></i> Estado
-                </h6>
-                <div class="form-group">
-                  <label for="">Estado</label>
-                  <select name="" multiple id="" @change='changeStatus($event)' v-model='filter.status' class='form-control'>
-                    <option :value="st.value" v-for='st in status'>
-                      {{st.name}}
-                    </option>
-                  </select>
-                </div>
-                <div class="button-group d-flex justify-content-start">
-                  <a href="" class="btn btn-dark" @click.prevent='showFilter=false,show.status=false'>Cerrar</a>
-             <!--      <a href="" class="btn btn-primary"
-                  @click.prevent='showFilter=false,show.status=false, filterTotal=true, setFilter()'>
-                    Filtrar
-                  </a> -->
-                </div>
-              </div>
-            </div>
-
           </div>
           <div class="card-body--search">
             <i class='fa fa-search card-body__icon-search'></i>
@@ -100,8 +16,56 @@
         </div>
 
       </form>
+      <div class="card card--margin_filter" v-show='showFilter'>
+        <div class="card-header">
+          <h5 class="card-header__title">Filtros</h5>
+        </div>
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-2">
+              <div class="form-group">
+                <label for="">Desde</label>
+                <input type="number" class='form-control' @keyup='setFilter()' v-model='filter.total_from'>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="form-group">
+                <label for="">Hasta</label>
+                <input type="number" class='form-control' @keyup='setFilter()' v-model='filter.total_to'>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="form-group">
+                <label for="">Desde</label>
+                <date-picker v-model="date_from" id='fecha1'  @change='changeDateFrom' lang='es' format='dd/MM/yyyy'></date-picker>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="form-group">
+                <label for="">Hasta</label>
+                <date-picker v-model="date_to" id='fecha2' lang='es' @change='changeDateTo' format='dd/MM/yyyy'> </date-picker>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="form-group">
+                <label for="">Estado</label>
+                <select name=""  id="" @change='changeStatus($event)' v-model='filter.status' class='form-control'>
+                  <option value="">Todos</option>
+                  <option :value="st.value" v-for='st in status'>
+                    {{st.label}}
+                  </option>
+                </select>
+          <!--       <v-select v-model="filter.status" :options="status" @change='changeStatus($event)' multiple ></v-select> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-end">
+          <a href="" class='btn btn-dark' @click.prevent='showFilter=false'>Cerrar</a>
+        </div>
+      </div>
 
-      <div class="card card--margin_filter" v-if='existFilter()'>
+      <div class="card card--margin_filter" v-if='existFilter() && !showFilter'>
         <div class="card-body card-body--filters">
           <div class="row card-body__filters" >
             <div class="col-2" v-if='filter.total_from'>
@@ -133,11 +97,11 @@
                 @click='cleanFilter("create_to")'></i>
               </div>
             </div>
-            <div class="col-2" v-for='(st, index) in filter.status'>
+            <div class="col-2" v-if='filter.status'>
               <div class="card-body__filters__option" >
-                <p class='card-body__filters__text'><strong>{{getStatus(st).name}}</strong></p>
+                <p class='card-body__filters__text'><strong>{{getStatus(filter.status).label}}</strong></p>
                 <i class="fa fa-times card-body__filters__close"
-                @click='$delete(filter.status, index), setFilter()'></i>
+                @click='cleanFilter("status")'></i>
               </div>
             </div>
           </div>
@@ -227,6 +191,7 @@
   </div>
 </template>
 <script>
+import vSelect from 'vue-select'
 import orderBy from '@/mixins/orderBy'
 import DatePicker from 'vue2-datepicker'
 import {en, es} from 'vuejs-datepicker/dist/locale'
@@ -235,7 +200,8 @@ export default {
   name: 'OrderList',
   mixins: [orderBy],
   components: {
-    DatePicker
+    DatePicker,
+    vSelect
   },
   data () {
     return {
@@ -255,19 +221,19 @@ export default {
         total_from: '',
         create_to: '',
         create_from: '',
-        status: []
+        status: ''
       },
       status: [
         {
-          name: 'En Almacén',
+          label: 'En Almacén',
           value: 'AL'
         },
         {
-          name: 'En Despacho',
+          label: 'En Despacho',
           value: 'DS'
         },
         {
-          name: 'Entregado',
+          label: 'Entregado',
           value: 'EG'
         }
       ]
@@ -357,6 +323,7 @@ export default {
       } else {
         this.filter.create_to = ''
       }
+      this.setFilter()
     },
     changeDateFrom (value) {
       console.log(value, 'value')
@@ -368,7 +335,7 @@ export default {
       this.setFilter()
     },
     changeStatus (e) {
-      console.log(e, e.target.value)
+      console.log(e, e.target.value, '----')
       this.setFilter()
     },
     formatDate (date) {

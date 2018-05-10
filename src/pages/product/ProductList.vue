@@ -54,7 +54,7 @@
 
               <div class="d-flex flex-wrap card-table__row" v-for='product in productList.results'>
                 <div class="col-12">
-                  <div class="row align-items-center card-table__body" v-if='product.product_class_products.length > 1'>
+                <!--   <div class="row align-items-center card-table__body" v-if='product.product_class_products.length > 1'>
                     <div class="col-4 card-table__body__col card-table__body__col--image">
                       <img :src="product.product_class_products[0].image_crop" alt="">
                       <router-link :to="{ name: 'product_detail', params: { slug: product.slug } }" class='card-table__body__field'>{{product.name}}</router-link>
@@ -68,8 +68,8 @@
                     <div class="col-2 card-table__body__col">
                       <div class='card-table__body__bol' :class="{'card-table__body__bol--active': product.is_published}"></div>
                     </div>
-                  </div>
-                  <div class="row align-items-center card-table__body" v-else>
+                  </div> -->
+                  <div class="row align-items-center card-table__body">
                     <div class="col-4 card-table__body__col card-table__body__col--image">
                       <img :src="product.product_class_products[0].image_crop" alt="">
                       <router-link :to="{ name: 'product_detail', params: { slug: product.slug } }" class='card-table__body__field'>{{product.name}}</router-link>
@@ -86,7 +86,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-12"  v-if='product.product_class_products.length > 1'>
+               <!--  <div class="col-12"  v-if='product.product_class_products.length > 1'>
                   <div class="row align-items-center card-table__body" v-for='product_variant in product.product_class_products'>
                     <div class="col-1 card-table__body__col">
                       <i class="fa fa-arrow-right card-table__body__col__arrow"></i>
@@ -110,7 +110,7 @@
 
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
 
             </div>
