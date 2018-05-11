@@ -12,17 +12,17 @@
           </router-link>
         </li>
         <li>
+          <router-link :to="{ name: 'order_list'}" class="sidebar__menu__link" active-class="sidebar__menu__link--active">
+            <i class="sidebar__menu__icon fa fa-truck"></i>
+            <p class='sidebar__menu__text'>Mis Pedidos</p>
+          </router-link>
+        </li>
+        <li>
           <router-link :to="{ name: 'product_list'}" class="sidebar__menu__link" active-class="sidebar__menu__link--active">
             <i class="sidebar__menu__icon fa fa-shopping-cart"></i>
             <p class='sidebar__menu__text'>Mis Productos</p>
           </router-link>
 
-        </li>
-        <li>
-          <router-link :to="{ name: 'order_list'}" class="sidebar__menu__link" active-class="sidebar__menu__link--active">
-            <i class="sidebar__menu__icon fa fa-truck"></i>
-            <p class='sidebar__menu__text'>Mis Pedidos</p>
-          </router-link>
         </li>
       </ul>
     </div>

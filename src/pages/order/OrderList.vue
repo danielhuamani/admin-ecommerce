@@ -70,14 +70,14 @@
           <div class="row card-body__filters" >
             <div class="col-2" v-if='filter.total_from'>
               <div class="card-body__filters__option" >
-                <p class='card-body__filters__text'>Hasta <strong>S/ {{filter.total_from}}</strong></p>
+                <p class='card-body__filters__text'>Desde <strong>S/ {{filter.total_from}}</strong></p>
                 <i class="fa fa-times card-body__filters__close"
                 @click='cleanFilter("total_from")'></i>
               </div>
             </div>
             <div class="col-2" v-if='filter.total_to'>
               <div class="card-body__filters__option" >
-                <p class='card-body__filters__text'>Desde <strong>S/ {{filter.total_to}}</strong></p>
+                <p class='card-body__filters__text'>Hasta <strong>S/ {{filter.total_to}}</strong></p>
                 <i class="fa fa-times card-body__filters__close"
                 @click='cleanFilter("total_to")'>
                 </i>
@@ -206,16 +206,9 @@ export default {
   data () {
     return {
       orderList: {},
-      showFilterGlobal: false,
       showFilter: false,
-      filterTotal: false,
       date_to: '',
       date_from: '',
-      show:{
-        total: false,
-        status: false,
-        date: false
-      },
       filter: {
         total_to: '',
         total_from: '',

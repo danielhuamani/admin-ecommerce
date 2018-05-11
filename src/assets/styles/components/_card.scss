@@ -216,6 +216,11 @@
                 display: block;
                 color: $color_text_menu;
             }
+            &__arrow_down{
+
+                color: $color_text_menu;
+                margin-right: 10px;
+            }
         }
         &__col--image{
             display: flex;
