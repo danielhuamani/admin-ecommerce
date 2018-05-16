@@ -1,5 +1,5 @@
 <template>
-  <div class="col-12">
+  <div class="col-6">
     <div class="card card--margin">
       <div class="card-header">
           <h5>Cantidad de Pedidos</h5>

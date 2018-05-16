@@ -1,6 +1,6 @@
 <template>
-  <div class="col-12">
-    <div class="card">
+  <div class="col-6">
+    <div class="card card--margin">
       <div class="card-header">
           <h5>Mis Ventas</h5>
       </div>
@@ -33,7 +33,7 @@ export default {
       const self = this
       this.axios({
         method: 'get',
-        url: '/dashboard/'
+        url: '/dashboard-sales/'
       }).then(response => {
         self.dashboard = response.data
         self.load = true

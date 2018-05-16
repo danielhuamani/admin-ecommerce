@@ -12,6 +12,15 @@
                 margin-bottom: 0;
             }
         }
+        &__dashboard_title{
+            margin-bottom: 10px;
+            font-size: 50px;
+        }
+        &__dashboard_description{
+            margin: 0;
+            height: 19px;
+            font-size: 12px;
+        }
         &__link_filter{
             position: relative;
         }
