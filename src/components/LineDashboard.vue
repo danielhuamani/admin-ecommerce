@@ -33,16 +33,42 @@ export default {
         labels: self.dashboard.mes_anio,
         datasets: [
           {
-            label: 'Ventas',
+            label: 'Mis Ingresos (S/)',
             borderColor: '#007ce2',
             pointBackgroundColor: '#007ce2',
             borderWidth: 2,
             pointBorderColor: '#007ce2',
-
-            data: self.dashboard.sum_total
+            data: self.dashboard.sum_total,
+            borderColor: '#007ce2',
+            pointBorderColor: '#007ce2',
+            pointBackgroundColor: '#007ce2',
+            pointRadius: 4,
+            pointHoverRadius: 15,
+            pointHitRadius: 30,
+            pointBorderWidth: 2
           }
         ]
-      }, {responsive: true, maintainAspectRatio: false})
+      }, {
+        responsive: true,
+        maintainAspectRatio: false,
+        tooltips: {
+          callbacks: {
+              label: function(tooltipItems, data) {
+                  return "S/" + tooltipItems.yLabel.toString();
+              }
+          }
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              callback: function(value, index, values) {
+                return 'S/' + value
+              }
+            }
+          }]
+        }
+
+      })
   },
   beforeDestroy () {
     if (this._chart) {

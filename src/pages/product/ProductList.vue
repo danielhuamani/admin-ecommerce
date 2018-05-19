@@ -149,7 +149,13 @@
                 <div class="col-12">
                   <div class="row align-items-center card-table__body" v-if='product.product_class_products.length > 1'>
                     <div class="col-4 card-table__body__col card-table__body__col--image">
-                      <i class="fa fa-arrow-down card-table__body__col__arrow_down" @click.prevent='openProduct=product.slug'></i>
+                      <i class="fa fa-arrow-up card-table__body__col__arrow_down"
+                      v-if='openProduct==product.slug'
+                      @click.prevent='openProduct=""'></i>
+                      <i class="fa fa-arrow-down
+                      card-table__body__col__arrow_down"
+                      v-else
+                      @click.prevent='openProduct=product.slug' ></i>
                       <img :src="product.product_class_products[0].image_crop" alt="">
                       <router-link :to="{ name: 'product_detail', params: { slug: product.slug } }" class='card-table__body__field'>{{product.name}}</router-link>
                     </div>

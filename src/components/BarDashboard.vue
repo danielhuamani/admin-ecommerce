@@ -32,7 +32,6 @@ export default {
     var data;
     var color = ['#699000', '#FB5660', '#65799B', '#545561', '#333538','#699000']
     var data_set =  Object.keys(self.dashboard.reporte).map(function(value, index) {
-      console.log(value, index)
       data = {
               label: self.dashboard.reporte[value]['name'],
               backgroundColor: color[index],
@@ -40,14 +39,25 @@ export default {
       }
       return data;
     })
-    console.log(data_set)
     this.renderChart({
           labels: [self.dashboard.mes_anio],
           datasets: data_set
 
-      }, {responsive: true, maintainAspectRatio: false, scales: {
-            xAxes: [{ barPercentage: 0.2 }]
-        }})
+      },
+      {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          xAxes: [{ barPercentage: 0.2 }],
+          yAxes: [{
+            ticks: {
+              callback: function(value, index, values) {
+                return value + 'Unid'
+              }
+            }
+          }]
+        }
+      })
   },
   beforeDestroy () {
     if (this._chart) {

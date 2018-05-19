@@ -131,4 +131,7 @@ export default {
   .row_order:last-child{
     margin-bottom: 0;
   }
+  .mx-datepicker{
+    width: 100% !important;
+  }
 </style>
