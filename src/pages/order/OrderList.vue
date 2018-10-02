@@ -252,24 +252,12 @@ export default {
     existFilter () {
       const self = this
       var exist = false
-      // for (var i = 0; i < Object.values(self.filter); i++) {
-      //   console.log(Object.values(self.filter)[i], '----')
-      //   if (Object.values(self.filter)[i]) {
-      //     exist = true
-      //   }
-      // }
       for(let val in self.filter) {
         if (self.filter[val].length > 0) {
           exist = true
         }
       }
-
       return exist
-      // if (this.query.filter.total_to || this.query.filter.total_from || this.query.filter.create_from || this.query.filter.create_to) {
-      //   self.showFilterText =  true
-      // } else {
-      //   self.showFilterText =  false
-      // }
     },
     search (value) {
       if (value.length > 2) {
@@ -319,7 +307,6 @@ export default {
       this.setFilter()
     },
     changeDateFrom (value) {
-      console.log(value, 'value')
       if (value) {
         this.filter.create_from = this.formatDate(value)
       } else {

@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar" :class="{'sidebar--active': getIsMenu}">
     <a href="" class='sidebar__logo'>
-      <img src="../assets/img/logo.svg" class='sidebar__logo__img' alt="" width="80">
+      <img src="../assets/img/fanntop.svg" class='sidebar__logo__img' alt="" width="150">
     </a>
     <div class="sidebar__menu">
       <ul>

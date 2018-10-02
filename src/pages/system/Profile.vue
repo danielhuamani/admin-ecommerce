@@ -72,9 +72,6 @@
       this.setNameMenu('Perfil')
     },
     methods: {
-      ...mapMutations([
-        'setNameMenu'
-      ]),
       getUser () {
         const self = this
         this.axios({
